@@ -19,3 +19,8 @@ body {
 * {
   -webkit-tap-highlight-color: transparent;
 }
+
+button, a {
+  touch-action: manipulation;
+  cursor: pointer;
+}

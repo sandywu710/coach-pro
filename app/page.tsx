@@ -139,6 +139,7 @@ export default function HomePage() {
                 <button
                   key={student.id}
                   onClick={() => setSelectedStudent(student)}
+                  style={{ touchAction: 'manipulation' }}
                   className={`w-full text-left bg-white rounded-2xl p-4 shadow-sm border transition active:scale-[0.99] ${
                     isLow ? 'border-[#E07070]/50' : 'border-[#EDE8E0]'
                   } hover:border-[#C49A6C]/40`}
@@ -180,6 +181,7 @@ export default function HomePage() {
       {/* FAB: Add student */}
       <button
         onClick={() => setShowAdd(true)}
+        style={{ touchAction: 'manipulation' }}
         className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-[#C49A6C] text-white shadow-lg flex items-center justify-center hover:bg-[#B08055] active:scale-95 transition z-20"
       >
         <UserPlus size={22} />
