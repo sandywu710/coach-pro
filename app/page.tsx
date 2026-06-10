@@ -82,13 +82,15 @@ export default function HomePage() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => router.push('/dashboard')}
-              className="p-2 rounded-full hover:bg-[#EDE8E0] transition text-[#3D2B1F]/70"
-              title="儀表板"
+              style={{ touchAction: 'manipulation' }}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#C49A6C]/10 text-[#C49A6C] font-medium text-sm hover:bg-[#C49A6C]/20 active:scale-95 transition"
             >
-              <LayoutDashboard size={20} />
+              <LayoutDashboard size={16} />
+              儀表板
             </button>
             <button
               onClick={handleLogout}
+              style={{ touchAction: 'manipulation' }}
               className="p-2 rounded-full hover:bg-[#EDE8E0] transition text-[#3D2B1F]/70"
               title="登出"
             >
