@@ -11,10 +11,11 @@ const notoSansTC = Noto_Sans_TC({
 export const metadata: Metadata = {
   title: 'CoachPro — 教練學員管理系統',
   description: '專業教練學員管理，報到、購課、追蹤一站搞定',
+  manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'CoachPro',
+    title: 'Coach Pro',
   },
 }
 
@@ -23,6 +24,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
+  viewportFit: 'cover',
 }
 
 export default function RootLayout({
