@@ -137,7 +137,7 @@ export default function StudentModal({ student, coachId, onClose, onUpdate }: Pr
     e.preventDefault()
     const sessions = parseInt(purchaseSessions)
     const amount = parseFloat(purchaseAmount)
-    if (!sessions || sessions <= 0 || !amount || amount < 0) return
+    if (!sessions || sessions <= 0 || isNaN(amount) || amount < 0) return
 
     setPurchaseLoading(true)
     const supabase = createClient()
@@ -318,7 +318,7 @@ export default function StudentModal({ student, coachId, onClose, onUpdate }: Pr
                           value={purchaseAmount}
                           onChange={e => setPurchaseAmount(e.target.value)}
                           required min="0"
-                          placeholder="5000"
+                          placeholder="0（免費補堂請填0）"
                           className="w-full px-3 py-2 rounded-xl border border-[#EDE8E0] bg-[#FAF7F2] text-sm outline-none focus:border-[#C49A6C]"
                         />
                       </div>
