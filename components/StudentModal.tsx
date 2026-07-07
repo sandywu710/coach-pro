@@ -79,10 +79,6 @@ export default function StudentModal({ student, coachId, onClose, onUpdate }: Pr
   }
 
   async function handleCheckin() {
-    if (student.sessions_remaining <= 0) {
-      showFeedback('error', '剩餘堂數為 0，無法報到')
-      return
-    }
     setActionLoading(true)
     const supabase = createClient()
     const { error: ciErr } = await supabase.from('checkins').insert({
@@ -223,6 +219,11 @@ export default function StudentModal({ student, coachId, onClose, onUpdate }: Pr
               </span> 堂
               {student.phone && <span className="ml-2">· {student.phone}</span>}
             </p>
+            {student.sessions_remaining < 0 && (
+              <p className="text-xs text-[#E07070] mt-0.5">
+                學員有 {Math.abs(student.sessions_remaining)} 堂待補繳
+              </p>
+            )}
           </div>
           <button onClick={onClose} className="p-2 rounded-full hover:bg-[#EDE8E0] transition">
             <X size={20} />

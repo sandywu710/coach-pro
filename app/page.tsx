@@ -137,6 +137,7 @@ export default function HomePage() {
           <div className="space-y-2.5">
             {filtered.map(student => {
               const isLow = student.sessions_remaining <= 3
+              const isNegative = student.sessions_remaining < 0
               return (
                 <button
                   key={student.id}
@@ -164,7 +165,9 @@ export default function HomePage() {
                       <p className={`text-lg font-bold ${isLow ? 'text-[#E07070]' : 'text-[#C49A6C]'}`}>
                         {student.sessions_remaining}
                       </p>
-                      <p className="text-xs text-[#3D2B1F]/40">剩餘堂</p>
+                      <p className={`text-xs ${isNegative ? 'text-[#E07070]' : 'text-[#3D2B1F]/40'}`}>
+                        {isNegative ? '堂・待補繳' : '剩餘堂'}
+                      </p>
                     </div>
                   </div>
                   {isLow && (
